@@ -18,9 +18,9 @@
 		<?php endif; ?>
 		<header class="entry-header">
 			
-			<?php if ( is_single() ) : ?>
+			<?php #if ( is_single() ) : ?>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php endif; // is_single() ?>
+			<?php #endif; // is_single() ?>
 
 			<?php if ( ! post_password_required() && ! is_attachment() ) : ?>
 				
@@ -46,7 +46,7 @@
 			//endif; 
 			?>
 
-			<?php if ( !is_single() ) : ?>
+			<?php if ( is_single() ) : ?>
 			<h1 class="entry-title">
 				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h1>
@@ -64,7 +64,7 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-			<?php if ( is_single() ) : ?>
+			<?php if ( !is_single() ) : ?>
 				<div class="entry-content">
 					<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
